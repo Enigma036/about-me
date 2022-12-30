@@ -1,0 +1,257 @@
+.zahlavi{
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Josefin Sans 100" ,sans-serif;
+    
+}
+
+.profile-picture {
+    border: 10px solid;
+    margin-top: 20px;
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    border-color: white;
+}
+  
+.zahlavi::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    background-color: #1c1c1c;
+    z-index: -1;
+}
+  
+.zahlavi::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
+}
+
+.profile-text{
+    font-size: 70px;
+}
+
+.profile-text::after{
+    content: "";
+    height: 5px;
+    width: 300px;
+    margin: auto;
+    display: block;
+    background-color: black;
+}
+
+h2{
+    font-size: 20px;
+}
+
+.about{
+    font-size: 55px;
+}
+
+div.about{
+    color: white;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 50px;
+    width: 1000px;
+    min-height: 390px;
+    text-align: justify;
+    background-color: #1c1c1c;
+    overflow-wrap: break-word;
+}
+
+.button{
+    border: 1px solid;
+    border-color: #1c1c1c;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 50%;
+    padding-left: 14px;
+    padding-right: 14px;
+    transition-duration: 0.4s;
+}
+
+.button_pro_portfolio{
+    border: white;
+    border-radius: 50px;
+    padding: 10px 15px;
+    color: black;
+    background-color: white;
+    border: 2px solid;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+.button_pro_portfolio:hover{
+    background-color: rgb(0, 0, 0);
+    border: 2px solid;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.button:hover{
+    background-color: white;
+    border: 1px solid;
+    border-color: #1c1c1c;
+    color: #1c1c1c;
+}
+
+.u_projektu{
+    text-align: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 50px;
+}
+  
+span.info_o_projektu{
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;  
+    border-radius: 15px;
+}
+
+span.nadpis_portfolio{
+    font-size: 60px;
+}
+
+span.kontakty{
+    font-size: 50px;
+}
+
+span.kontakty::after{
+    content: "";
+    height: 3px;
+    width: 300px;
+    margin: auto;
+    display: block;
+    background-color: black;
+}
+
+h1.kontakty{
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+button.kontakty{
+    margin-top: 35px;
+    font-size: 25px;
+    color: white;
+    background-color: #238636;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-color: #238636;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .profile-picture{
+        width: 175px;
+        height: 175px;
+        border: 5px solid;
+        border-color: white;
+    }
+
+    .profile-text{
+        font-size: 45px;
+    }
+
+    .profile-text::after{
+        height: 3px;
+        width: 150px;
+    }
+
+    h2{
+        font-size: 10px;
+    }
+
+    .about{
+        font-size: 28px;
+    }
+
+    div.about{
+        font-size: 10px;
+        padding: 25px;
+        width: 500px;
+        min-height: 175px;
+    }
+
+    .button{
+        font-size: 10px;
+        padding: 5px 10px;
+        margin: 0px 10px;
+    }
+
+    .button_pro_portfolio{
+       font-size: 10px;
+       padding: 5px 8px; 
+       border: 1px solid;
+       border-color: white;
+    }
+    
+    .u_projektu{
+        width: 35px;
+        height: 35px;
+        margin: auto;
+    }
+
+    span.info_o_projektu{
+        font-size: 8px;
+    }
+
+    span.nadpis_portfolio{
+        font-size: 30px;
+    }
+
+    span.kontakty{
+        font-size: 25px;
+    }
+
+    span.kontakty::after{
+        height: 2px;
+        width: 150px;
+    }
+
+    h1.kontakty{
+        font-size: 25px;
+    }
+
+    button.kontakty{
+        font-size: 12px;
+    }
+
+}
