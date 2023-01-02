@@ -15,18 +15,17 @@
 </head>
 <body>
     <div class="zahlavi">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_cropped_2_%2846806576944%29_%28cropped%29.jpg/800px-Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_cropped_2_%2846806576944%29_%28cropped%29.jpg" class="profile-picture"> <!--Only for this moment xD-->
+        <img src="https://i.ibb.co/yPpd1r5/TOM-vzdalen-cut.jpg" class="profile-picture">
     </div>    
     <div style="text-align: center; margin-top: 20px;">
         <h1 class="profile-text">Tomas Hanak</h1>
         <h2 style="margin-top: 10px;"><i>Software Developer, Student & Geek</i></h2>
     </div>
     <div style="text-align: center; margin-top: 100px; justify-content: center;">
-        <div id="about-profile-text" style="display: flex; text-align: center; justify-content: center;">
+        <div style="display: flex; text-align: center; justify-content: center;">
             <h2 class="about">About <span style="color: red;">me</span></h2>
-            <button class="button" onclick="naPortfolio()">></button>
         </div>
-        <div style="display: flex; justify-content: center; text-align: center;" id="profile_content">
+        <div style="display: flex; justify-content: center; text-align: center;">
             <div class="about"> 
                 <p>
                 My name is Tomas Hanak and I'm a software developer and geek from the Czech Republic (For my American friends, it's <a href="https://goo.gl/maps/MNy8FrYoWfs732o78" target="_blank">here</a>).<br><br>
@@ -35,6 +34,31 @@
                 Nowadays I am studying my third year at the Technical and Business College, Brno and I am newly programming in C#, I can work with databases and I know the basics of computer networks.
                 </p>
             </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 100px; justify-content: center;">
+        <div id="about-profile-text" style="display: flex; text-align: center; justify-content: center;">
+            <h2 class="about">My <span style="color: red;">portfolio</span></h2>
+        </div>
+        <div style="display: flex; justify-content: center; text-align: center;" id="profile_content">
+            <button class="button u_projektu" onclick="posunDoLeva()"><</button>
+            <div class="about">
+              <div style="text-align: center;">
+                <span class="nadpis_portfolio">Project Sara</span>
+              </div>
+              <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+                <span class="info_o_projektu" style="background-color: rgb(35, 224, 35); border-color: rgb(35, 224, 35);">Finished</span>
+              </div>
+              <p>
+                "Project Sara" is my first major Python project. It is a voice assistant for computers, which is completely in Czech (most voice assistants in the Czech Republic do not speak Czech).<br><br> The program is created using the SpeechRecognition library and the GUI is made in Tkinter. Project Sara contains predefined commands (turn on the application, search, find, find information ...), but the user can create his own commands at will. For the project I created a own mp3 player so that the program can play songs.<br><br>
+              </p>
+              <div style="text-align: center; justify-content: center;">
+                <a href="https://github.com/Enigma036/Projekt-Sara" target="_blank">
+                  <button class="button_pro_portfolio">View code</button>
+                </a>
+              </div>
+            </div>
+            <button class="button u_projektu" onclick="posunDoPrava()">></button>
         </div>
     </div>
     <div style="text-align: center; justify-content: center; margin-top: 50px;">

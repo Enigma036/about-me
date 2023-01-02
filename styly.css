@@ -178,6 +178,12 @@ button.kontakty{
     border-radius: 10px;
 }
 
+button.kontakty:hover{
+    background-color: white;
+    color: #238636;
+    transition-duration: 0.4s;
+}
+
 @media only screen and (max-width: 600px) {
     .profile-picture{
         width: 175px;
@@ -205,14 +211,14 @@ button.kontakty{
 
     div.about{
         font-size: 10px;
-        padding: 25px;
-        width: 500px;
+        padding: 20px;
+        width: 250px;
         min-height: 175px;
     }
 
     .button{
         font-size: 10px;
-        padding: 5px 10px;
+        padding: 0px 12px;
         margin: 0px 10px;
     }
 
