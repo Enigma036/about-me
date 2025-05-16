@@ -1,77 +1,665 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Tomas Hanak, Tomáš Hanák, Programmer, Software developer, Geek, Brno, Project Sára, Hitnote, SŠTE Brno, Czech Republic, Czechia, Subnet trainer, Github, Voice assistant, High school, Python, HTML, CSS, JavaScript">
-    <meta name="author" content="Tomas Hanak">
-    <meta property="title" content="A few words about Tomas Hanak." />
-    <meta name="description" content="My name is Tomas Hanak and I'm a software developer and geek from the Czech Republic.">
-    <meta property="og:title" content="A few words about Tomas Hanak" />
-    <meta property="og:description" content="My name is Tomas Hanak and I'm a software developer and geek from the Czech Republic."/>
-    <link rel="stylesheet" href="styly.css">
-    <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://i.ibb.co/bK8R0fm/logo.png" type="image/icon type">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
-    <title>Tomas Hanak</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tomáš Hanák</title>
+  <style>
+    /* Base styles - Dark Mode */
+    :root {
+      --primary: #7f5af0;
+      --primary-light: #9d79ff;
+      --accent: #2cb67d;
+      --bg-dark: #16161a;
+      --bg-card: #242629;
+      --text-light: #fffffe;
+      --text-secondary: #94a1b2;
+      --border: #010101;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      --border-radius: 16px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      background-color: var(--bg-card);
+      color: var(--text-light);
+      padding: 3rem 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .profile {
+      margin-bottom: 2rem;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      box-shadow: var(--shadow);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    
+    /* Social links in header */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--bg-dark);
+      border-radius: 50%;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      border: 1px solid var(--primary);
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(127, 90, 240, 0.4);
+    }
+    
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    
+    section {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      position: relative;
+      display: inline-block;
+      font-weight: 600;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    
+    section:hover h2::after {
+      width: 100%;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+    
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .skill-tag {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      border: 1px solid var(--primary);
+    }
+    
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    
+    .project-card {
+      background: var(--bg-dark);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+      border-color: var(--primary);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .project-info {
+      padding: 1.5rem;
+    }
+    
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+    
+    /* Experience section */
+    .experience-item {
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+    
+    .experience-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 1rem;
+      width: 2px;
+      height: calc(100% + 1rem);
+      background-color: var(--primary-light);
+      opacity: 0.5;
+    }
+    
+    .experience-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 0.3rem;
+    }
+    
+    .experience-company {
+      font-size: 1.1rem;
+      color: var(--primary-light);
+      margin-bottom: 0.3rem;
+    }
+    
+    .experience-date {
+      font-size: 1.0rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+    }
+    
+    .experience-location {
+      font-size: 1.0rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+    
+    .experience-description {
+      color: var(--text-secondary);
+    }
+    
+    .experience-description ul {
+      padding-left: 1.5rem;
+    }
+    
+    .experience-description li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Education section */
+    .education-item {
+      margin-bottom: 1.5rem;
+    }
+    
+    .education-degree {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 0.3rem;
+    }
+    
+    .education-institution {
+      font-size: 1.2rem;
+      color: var(--primary-light);
+      margin-bottom: 0.3rem;
+    }
+    
+    .education-date {
+      font-size: 1.0rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Contact */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .contact-icon {
+      background-color: var(--bg-dark);
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+    }
+    
+    /* Social networks in contacts */
+    .social-section {
+      margin-top: 2rem;
+    }
+    
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: var(--bg-dark);
+      border-radius: var(--border-radius);
+      padding: 1rem 1.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      width: calc(50% - 0.5rem);
+    }
+    
+    .social-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .social-card-icon {
+      color: var(--primary);
+      width: 30px;
+      height: 30px;
+    }
+    
+    .social-card-text {
+      color: var(--text-light);
+      text-decoration: none;
+    }
+    
+    /* Awards section */
+    .awards-item {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .awards-year {
+      background-color: var(--bg-dark);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-weight: 600;
+      min-width: 80px;
+      text-align: center;
+      border: 1px solid var(--primary);
+    }
+    
+    .awards-title {
+      color: var(--text-light);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--bg-card);
+      color: var(--text-secondary);
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+      border-bottom: none;
+    }
+    
+    /* Subtle glow effect on hover */
+    .profile-img:hover, 
+    section:hover, 
+    .project-card:hover {
+      box-shadow: 0 0 15px rgba(127, 90, 240, 0.4);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 2rem;
+      }
+      
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      
+      .social-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="zahlavi">
-        <img src="https://i.ibb.co/yPpd1r5/TOM-vzdalen-cut.jpg" class="profile-picture" alt="Tomas Hanak">
-    </div>    
-    <div style="text-align: center; margin-top: 20px;">
-        <h1 class="profile-text">Tomas Hanak</h1>
-        <h2 style="margin-top: 10px;"><i>Software Developer, Student & Geek</i></h2>
-    </div>
-    <div style="text-align: center; margin-top: 100px; justify-content: center;">
-        <div style="display: flex; text-align: center; justify-content: center;">
-            <h2 class="about">About <span style="color: red;">me</span></h2>
-        </div>
-        <div style="display: flex; justify-content: center; text-align: center;">
-            <div class="about"> 
-                <p>
-                My name is Tomas Hanak and I'm a software developer and geek from the Czech Republic (For my American friends, it's <a href="https://goo.gl/maps/MNy8FrYoWfs732o78" target="_blank">here</a>).<br><br>
-                My journey in the IT field started in elementary school where I started learning HTML/CSS coding languages. After building a few web pages, I switched to C++ to create simple console applications.<br><br>
-                The biggest leap in my IT career was moving to Technical and Business College, Brno. Here I was introduced to the Python language. It was love at first sight. I created a number of small projects in Python and one big one: "Voice Assistant for computers in Czech language" (Microsoft's Cortana is not available in the Czech Republic). During my first two years at school I was further introduced to PHP and JavaScript.<br><br>
-                Nowadays I am studying my third year at the Technical and Business College, Brno and I am newly programming in C#, I can work with databases and I know the basics of computer networks.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 100px; justify-content: center;">
-        <div id="about-profile-text" style="display: flex; text-align: center; justify-content: center;">
-            <h2 class="about">My <span style="color: red;">portfolio</span></h2>
-        </div>
-        <div style="display: flex; justify-content: center; text-align: center;" id="profile_content">
-            <button class="button u_projektu" onclick="posunDoLeva()"><</button>
-            <div class="about">
-              <div style="text-align: center;">
-                <span class="nadpis_portfolio">Project Sara</span>
-              </div>
-              <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-                <span class="info_o_projektu" style="background-color: rgb(35, 224, 35); border-color: rgb(35, 224, 35);">Finished</span>
-              </div>
-              <p>
-                "Project Sara" is my first major Python project. It is a voice assistant for computers, which is completely in Czech (most voice assistants in the Czech Republic do not speak Czech).<br><br> The program is created using the SpeechRecognition library and the GUI is made in Tkinter. Project Sara contains predefined commands (turn on the application, search, find, find information ...), but the user can create his own commands at will. For the project I created a own mp3 player so that the program can play songs.<br><br>
-              </p>
-              <div style="text-align: center; justify-content: center;">
-                <a href="https://github.com/Enigma036/Projekt-Sara" target="_blank">
-                  <button class="button_pro_portfolio">View code</button>
-                </a>
-              </div>
-            </div>
-            <button class="button u_projektu" onclick="posunDoPrava()">></button>
-        </div>
-    </div>
-    <div style="text-align: center; justify-content: center; margin-top: 50px;">
-        <span class="kontakty" style="margin-top: 50x;">Contacts:</span>
-        <h1 class="kontakty">tomsnhanak@email.cz</h1>
-        <a href="https://github.com/Enigma036" target="_blank">
-            <button class="kontakty">My GitHub <i class="fa fa-github"></i></button>
+  <header>
+    <div class="header-content">
+      <div class="profile">
+        <img src="https://i.ibb.co/yPpd1r5/TOM-vzdalen-cut.jpg" alt="Profile Photo" class="profile-img">
+      </div>
+      <h1>Tomáš Hanák</h1>
+      <p class="tagline">Informatics Student & IT Professional</p>
+      
+      <!-- Social icons in header -->
+      <div class="social-links">
+        <a href="https://github.com/Enigma036" class="social-link" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
         </a>
+        <a href="https://linkedin.com/in/tomashanak36" class="social-link" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+      </div>
     </div>
-    <br><br><br><br>
+  </header>
+  
+  <main>
+    <!-- About me -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I'm a student of Informatics at Brno University of Technology and primarily a software developer. I've gained experience with system administration, IT support, and programming through jobs, internships, and personal projects.</p>
+      <p>In my free time, I enjoy watching TV shows, playing around with small side projects, and occasionally solving Capture the Flag (CTF) challenges in the area of cybersecurity.</p>
+    </section>
+    
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education-item">
+        <div class="education-degree">Bachelor of Science in Informatics</div>
+        <div class="education-institution">Brno University of Technology</div>
+        <div class="education-date">2024 - 2027 (expected)</div>
+      </div>
+      
+      <div class="education-item">
+        <div class="education-degree">High School Diploma</div>
+        <div class="education-institution">Střední škola technická a ekonomická Brno</div>
+        <div class="education-date">2020 - 2024</div>
+      </div>
+    </section>
+    
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Work Experience</h2>
+      
+      <div class="experience-item">
+        <div class="experience-title">System Administrator and IT Support (Erasmus Internship)</div>
+        <div class="experience-company">TeamTalk</div>
+        <div class="experience-date">2024</div>
+        <div class="experience-location">Dublin, Ireland</div>
+        <div class="experience-description">
+          <ul>
+            <li>Provided IT support for internal users, troubleshooting hardware, software, and network issues</li>
+            <li>Managed user accounts and permissions using Active Directory</li>
+            <li>Built and updated internal websites, improving user accessibility and design</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-title">Server Repairer and Test Technician (Internship)</div>
+        <div class="experience-company">Wistron</div>
+        <div class="experience-date">2023</div>
+        <div class="experience-location">Brno, Czech Republic</div>
+        <div class="experience-description">
+          <ul>
+            <li>Repaired and maintained enterprise servers from Microsoft and Fujitsu</li>
+            <li>Performed diagnostics and functional tests to ensure hardware reliability</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-title">Help Desk Technician (Erasmus Internship)</div>
+        <div class="experience-company">Keywords Studios</div>
+        <div class="experience-date">2023</div>
+        <div class="experience-location">Dublin, Ireland</div>
+        <div class="experience-description">
+          <ul>
+            <li>Managed IT hardware and asset inventory across departments</li>
+            <li>Responded to support tickets and provided technical assistance to end users</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Skills -->
+    <section id="skills">
+      <h2>My Skills</h2>
+      <p>Through my professional journey and personal development, I've acquired a variety of technical skills:</p>
+      <div class="skills">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">Dart</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">Jinja</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">WPF</span>
+      </div>
+    </section>
+    
+    <!-- Awards -->
+    <section id="awards">
+      <h2>Awards and Honors</h2>
+      <div class="awards-item">
+        <div class="awards-year">2023-2024</div>
+        <div class="awards-title">National finalist in the Cyber Security Competition</div>
+      </div>
+    </section>
+    
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="projects">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <img src="sara.png" alt="Project Sara" class="project-img">
+          <div class="project-info">
+            <h3 class="project-title">Project Sara</h3>
+            <p>A Czech voice assistant that allows users to control their computer, search the web and Wikipedia, find coordinates on Google Maps, and play music using an integrated MP3 player. Includes support for custom commands.</p>
+            <a href="https://github.com/Enigma036/project-sara" target="_blank" style="color: var(--primary);">View on GitHub</a>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="regnom.png" alt="Unity Game" class="project-img">
+          <div class="project-info">
+            <h3 class="project-title">Unity Game</h3>
+            <p>A 3D Souls-like game created in Unity using C#. Features item collection, player stat upgrades, and AI enemy combat. Developed as a graduation project.</p>
+            <a href="https://enigma036.itch.io/regnom-in-the-service-of-the-king" target="_blank" style="color: var(--primary);">View on Itch.io</a>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <img src="museum.png" alt="Muzeum QR" class="project-img">
+          <div class="project-info">
+            <h3 class="project-title">Muzeum QR</h3>
+            <p>A system built for a Prague museum to manage exhibits, generate multilingual articles, and produce QR codes for visitors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Languages -->
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="skills">
+        <span class="skill-tag">Czech (Native)</span>
+        <span class="skill-tag">English (Intermediate)</span>
+      </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>If you're interested in collaboration or have any questions, feel free to reach out:</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <span>tomsnhanak AT email.cz</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <span>Brno, Czech Republic</span>
+        </div>
+      </div>
+      
+      <!-- Social networks - detailed -->
+      <div class="social-section">
+        <h3>Find me on:</h3>
+        <div class="social-grid">
+          <a href="https://github.com/Enigma036" class="social-card" target="_blank">
+            <svg class="social-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span class="social-card-text">GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/tomashanak36" class="social-card" target="_blank">
+            <svg class="social-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span class="social-card-text">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Tomáš Hanák. All rights reserved.</p>
+  </footer>
 </body>
 </html>
